@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 21st Birthday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="glow" id="floaties"></div>
+  <div class="kicker">A day made just for you</div>
+  <h1>Happy <span class="num-21">21st</span> Birthday,<br><em id="wife-name">My Love</em></h1>
+  <p class="sub">Twenty-one candles, countless reasons to celebrate you.  "I am just a well wisher of your life."May the Almighty bless you with my remaining years.". </p>
+  <p class="sub">Scroll down — I made you a little something.</p>
+  <div class="scroll-cue"><span>keep scrolling</span><span class="arrow"></span></div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="section-head">
+    <div class="eyebrow">Some Moment's</div>
+    <h2>Some of my favourite moments</h2>
+  
+  </div>
+  <div class="polaroid-grid">
+    <!-- PHOTO SLOT: change src="" to your image path/filename, e.g. src="photo1.jpg" -->
+    <div class="polaroid"><span class="tape"></span><div class="frame"><img src="wife_p1.jpg" alt="Add photo 1" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','Add photo 1')"></div><span class="cap">Cake 🎂🎂 Kabo 😭😭</span></div>
+    <div class="polaroid"><span class="tape"></span><div class="frame"><img src="wife_p2.jpg" alt="Add photo 2" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','Add photo 2')"></div><span class="cap">🥰🥰</span></div>
+    <div class="polaroid"><span class="tape"></span><div class="frame"><img src="wife_p3.jpg" alt="Add photo 3" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','Add photo 3')"></div><span class="cap">🥰🥰</span></div>
+    <div class="polaroid"><span class="tape"></span><div class="frame"><img src="wife_p4.jpg" alt="Add photo 4" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','Add photo 4')"></div><span class="cap">🥰🥰</span></div>
+    <div class="polaroid"><span class="tape"></span><div class="frame"><img src="wife_p5.jpg" alt="Add photo 5" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','Add photo 5')"></div><span class="cap">😘😘</span></div>
+  </div>
+</section>
+
+<!-- ============ CAKE ============ -->
+<section id="cake">
+  <div class="section-head">
+    <div class="eyebrow">Cake</div>
+    <h2>Make a wish</h2>
+    <p>Twenty-one candles. Blow them out and see what happens.</p>
+  </div>
+  <div class="cake-wrap">
+    <div class="cake-stage" id="cakeStage">
+      <div class="cake">
+        <div class="candles">
+          <div class="candle"><span class="flame"></span></div>
+          <div class="candle"><span class="flame"></span></div>
+          <div class="candle"><span class="flame"></span></div>
+        </div>
+        <div class="tier top"><div class="drip"></div></div>
+        <div class="tier middle"><div class="drip"></div></div>
+        <div class="tier bottom"><div class="drip"></div></div>
+      </div>
+    </div>
+    <button class="wish-btn" id="wishBtn">Blow out the candles</button>
+    <p class="wish-text" id="wishText">Wish made. Here's to twenty-one. 🥂</p>
+  </div>
+</section>
+
+<!-- Birthday popup -->
+<div id="wishOverlay" class="wish-overlay">
+  <div class="wish-modal">
+    <div class="wish-modal-emoji">🎂</div>
+    <h3 id="wishModalTitle">Happy Birthday Golo Molo</h3>
+    <p>Here's to twenty-one. 🥂</p>
+    <button id="wishModalClose" class="wish-btn">Close</button>
+  </div>
+</div>
+
+<!-- ============ SPECIAL NOTE ============ -->
+<section id="note">
+  <div class="section-head">
+    <div class="eyebrow">Brithday Note</div>
+    <h2>A note, just for you</h2>
+  </div>
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope">
+      <div class="body">
+        <div class="flap"></div>
+        <div class="seal">✦</div>
+        <div class="letter">
+          <!-- EDIT THIS MESSAGE -->
+          তুমি এতো বড়ো হয়ে গেলে কি করে, বাবা রে বাবা , 21 বছর ।🥰🥰। আমার সোনা বউ 😘😘। সোনা পাখি 😚😚😚। 😘😘 । 
+
+          এবার আমার Treat 🥳🥳🥳 দেও   😛😛. Happy birthday.
+          <span class="sign">— Happy birthday 🥰😘😘🎂🎂🎂</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="hint" id="envelopeHint">tap the envelope to open it</p>
+</section>
+
+<!-- ============ TREATS ============ -->
+<section id="treats">
+  <div class="section-head">
+    <div class="eyebrow">Gift</div>
+    <h2>Treats for the birthday girl</h2>
+    <p>কোনটা খাবে বলো 😉</p>
+  </div>
+  <div class="shelf">
+    <div class="treat"><span class="emoji">🧁</span><span class="label">Cupcake</span></div>
+    <div class="treat"><span class="emoji">🍫</span><span class="label">Chocolate</span></div>
+    <div class="treat"><span class="emoji">🍰</span><span class="label">Cake slice</span></div>
+    <div class="treat"><span class="emoji">🍪</span><span class="label">Cookies</span></div>
+    <div class="treat"><span class="emoji">🍦</span><span class="label">Ice cream</span></div>
+    <div class="treat"><span class="emoji">🍓</span><span class="label">Strawberries</span></div>
+  </div>
+</section>
+
+<footer>
+© 2026 Priyanka Rani. All Rights Reserved.
+
+Designed with using HTML, CSS & JavaScript <span class="heart">♥</span> 
+</footer>
+
+<!-- MUSIC — put your song file next to this HTML file and update the src below -->
+<audio id="bgSong" loop>
+  <source src="mp_3song.mpeg" type="audio/mpeg">
+</audio>
+<button id="music-toggle" title="Play our song">
+  <span class="disc">💿</span>
+</button>
+<div id="music-note">Add a file named <b>song.mp3</b> next to this page to enable music.</div>
+
+<div id="confetti-layer"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

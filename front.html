@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Something For You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:   #241428;
+    --bg-plum:   #3a2140;
+    --accent-gold:  #e7b65b;
+    --accent-blush: #f2a6b7;
+    --berry:     #c1465a;
+    --cream:     #fbf1e6;
+    --cream-dim: #e7d9c9;
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Quicksand', -apple-system, sans-serif;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html, body{
+    height:100%;
+  }
+
+  body{
+    font-family:var(--font-body);
+    background:
+      radial-gradient(circle at 20% 15%, rgba(231,182,91,0.10), transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(193,70,90,0.16), transparent 50%),
+      linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-plum) 100%);
+    color:var(--cream);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    position:relative;
+    padding:24px;
+  }
+
+  /* ============ BALLOONS ============ */
+  #balloon-field{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+  }
+
+  .balloon{
+    position:absolute;
+    bottom:-220px;
+    width:70px;
+    height:88px;
+    border-radius:50% 50% 50% 50% / 58% 58% 42% 42%;
+    animation-name:rise, sway;
+    animation-timing-function:linear, ease-in-out;
+    animation-iteration-count:infinite, infinite;
+    will-change:transform;
+    filter:drop-shadow(0 10px 14px rgba(0,0,0,0.35));
+  }
+  .balloon::before{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:100%;
+    width:2px;
+    height:60px;
+    background:rgba(255,255,255,0.35);
+    transform:translateX(-50%);
+  }
+  .balloon::after{
+    content:'';
+    position:absolute;
+    left:50%;
+    top:96%;
+    width:12px;
+    height:12px;
+    background:inherit;
+    clip-path:polygon(50% 0, 0 100%, 100% 100%);
+    transform:translateX(-50%);
+  }
+  .balloon .shine{
+    position:absolute;
+    top:16%; left:22%;
+    width:22%; height:30%;
+    background:rgba(255,255,255,0.35);
+    border-radius:50%;
+    filter:blur(1px);
+  }
+
+  @keyframes rise{
+    from{ bottom:-220px; }
+    to{ bottom:115vh; }
+  }
+  @keyframes sway{
+    0%,100%{ transform:translateX(0) rotate(-3deg); }
+    50%{ transform:translateX(24px) rotate(3deg); }
+  }
+
+  /* ============ CONTENT ============ */
+  .content{
+    position:relative;
+    z-index:2;
+    max-width:560px;
+  }
+
+  .kicker{
+    font-size:1rem;
+    letter-spacing:0.05em;
+    color:var(--accent-gold);
+    font-weight:600;
+    margin-bottom:16px;
+  }
+
+  h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(2.2rem, 6vw, 3.4rem);
+    line-height:1.15;
+    color:var(--cream);
+    margin-bottom:18px;
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--accent-blush);
+  }
+
+  p.sub{
+    font-size:1.1rem;
+    color:var(--cream-dim);
+    margin-bottom:44px;
+  }
+
+  .special-btn{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:1.05rem;
+    background:var(--berry);
+    color:var(--cream);
+    border:none;
+    padding:18px 40px;
+    border-radius:999px;
+    cursor:pointer;
+    box-shadow:0 14px 30px rgba(193,70,90,0.4);
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .special-btn:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 20px 38px rgba(193,70,90,0.5);
+  }
+  .special-btn:active{
+    transform:translateY(-1px) scale(0.99);
+  }
+  .special-btn .sparkle{
+    margin-left:8px;
+    display:inline-block;
+    animation:pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{ transform:scale(1); opacity:1; }
+    50%{ transform:scale(1.25); opacity:0.7; }
+  }
+
+  .hint{
+    margin-top:22px;
+    font-size:0.85rem;
+    color:var(--cream-dim);
+    opacity:0.75;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .balloon{ animation:none; opacity:0.5; bottom:20%; }
+    .special-btn .sparkle{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div id="balloon-field"></div>
+
+  <div class="content">
+    <div class="kicker">Before we begin</div>
+    <h1>There's a little <em>surprise</em><br>waiting for you</h1>
+    <p class="sub">I hope you like it!</p>
+    <button class="special-btn" id="specialBtn">Press Me <span class="sparkle">✨</span></button>
+    <p class="hint">something special</p>
+  </div>
+
+<script>
+  // ============================================================
+  // CUSTOMIZE: change this to the filename of your main birthday page
+  // ============================================================
+  const NEXT_PAGE = "index.html";
+
+  document.getElementById('specialBtn').addEventListener('click', () => {
+    window.location.href = NEXT_PAGE;
+  });
+
+  // Generate rising balloons
+  (function balloons(){
+    const field = document.getElementById('balloon-field');
+    const colors = ['#c1465a', '#e7b65b', '#f2a6b7', '#8fd3c7', '#fbf1e6'];
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const count = reduced ? 6 : 18;
+
+    for(let i = 0; i < count; i++){
+      const b = document.createElement('div');
+      b.className = 'balloon';
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      b.style.background = `radial-gradient(circle at 35% 30%, ${lighten(color)}, ${color})`;
+      b.style.left = Math.random() * 96 + '%';
+      const size = 50 + Math.random() * 40;
+      b.style.width = size + 'px';
+      b.style.height = (size * 1.25) + 'px';
+
+      const riseDuration = 10 + Math.random() * 10;
+      const swayDuration = 3 + Math.random() * 2;
+      const delay = Math.random() * riseDuration;
+      b.style.animationDuration = `${riseDuration}s, ${swayDuration}s`;
+      b.style.animationDelay = `-${delay}s, -${Math.random() * swayDuration}s`;
+
+      const shine = document.createElement('span');
+      shine.className = 'shine';
+      b.appendChild(shine);
+
+      field.appendChild(b);
+    }
+  })();
+
+  function lighten(hex){
+    // quick helper to create a lighter highlight shade for each balloon
+    const num = parseInt(hex.slice(1), 16);
+    let r = (num >> 16) + 60, g = ((num >> 8) & 0x00FF) + 60, b = (num & 0x0000FF) + 60;
+    r = Math.min(255, r); g = Math.min(255, g); b = Math.min(255, b);
+    return `rgb(${r},${g},${b})`;
+  }
+</script>
+
+</body>
+</html>
